@@ -13,7 +13,7 @@ namespace Ayudantia3
             GeometriaController geometria = new GeometriaController();
             SocialTechController socialTech = new SocialTechController();
 
-            geometria.Ejecutar();
+            //geometria.Ejecutar();
             socialTech.Ejecutar();
         }
     }
