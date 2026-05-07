@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ejercicio1Singleton/ejercicio1Singleton.csproj" />
+  <Project Path="ejercicio2Composite/ejercicio2Composite.csproj" />
+  <Project Path="ejercicio3Híbrido/ejercicio3Híbrido.csproj" />
+</Solution>
