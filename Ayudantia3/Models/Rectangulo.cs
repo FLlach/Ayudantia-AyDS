@@ -5,6 +5,7 @@ namespace Ayudantia3.Models
         public double Base { get; set; }
         public double Altura { get; set; }
 
+
         public Rectangulo(string nombre, double @base, double altura) : base(nombre)
         {
             Base = @base;
