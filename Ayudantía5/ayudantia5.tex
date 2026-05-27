@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+
+% Encabezado
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Escuela de Ingeniería \\ Universidad de O'Higgins}
+\fancyhead[R]{Analisis y Diseño de Software \\ 2026-01}
+\fancyfoot[C]{\thepage}
+
+% Título comprimido
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\LARGE \@title\par}
+    \vskip 0.3em
+    {\large \@author\par}
+    \vskip 0.3em
+  \end{center}
+  \vskip -0.2em  % Espacio después del título
+}
+\makeatother
+
+\title{Ayudantía 5}
+\author{Felipe Llach R.}
+
+\begin{document}
+\maketitle
+\section{Contexto del Proyecto}
+Una emergente cadena de \textit{food trucks} ha detectado un cuello de botella en su operación diaria: la comunicación entre la toma de pedidos y la preparación en cocina es lenta y propensa a errores debido al uso de tickets de papel.
+
+Para solucionar esto, el equipo de desarrollo debe construir un \textbf{Kitchen Display System (KDS)}. El flujo esperado de la información es el siguiente:
+
+\begin{enumerate}
+    \item El cajero toma el pedido utilizando el Sistema de Punto de Venta (POS) existente de la empresa.
+    \item El POS envía la información del pedido al nuevo sistema KDS.
+    \item Los cocineros visualizan los pedidos en tiempo real a través de tablets instaladas en cada \textit{food truck}.
+    \item Desde la tablet, los cocineros pueden marcar los platos como ``En preparación'' y ``Completados''.
+    \item Un administrador central necesita poder extraer métricas de tiempos de preparación al final del día.
+\end{enumerate}
+
+Su tarea como arquitectos de software es modelar esta solución utilizando los primeros tres niveles del Modelo C4.
+
+\section{Instrucciones de Desarrollo}
+A continuación, resuelva el ejercicio diseñando los diagramas correspondientes.
+\subsection{Parte 1: Diagrama de Contexto (Nivel 1)}
+\textbf{Objetivo:} Modelar el panorama general del sistema y sus interacciones con el mundo exterior.
+\begin{itemize}
+    \item Identifique al sistema principal (KDS).
+    \item Identifique a todos los actores (usuarios humanos) que interactuarán directa o indirectamente con el KDS.
+    \item Identifique cualquier sistema de software externo involucrado en el flujo de trabajo.
+    \item \textbf{Entregable:} Un diagrama de Contexto que muestre el sistema KDS en el centro, rodeado de sus usuarios y dependencias externas, con flechas direccionales que expliquen brevemente qué información fluye entre ellos.
+\end{itemize}
+
+\subsection{Parte 2: Diagrama de Contenedores (Nivel 2)}
+\textbf{Objetivo:} Definir la arquitectura de alto nivel del sistema KDS, mostrando sus aplicaciones y unidades de almacenamiento de datos.
+\begin{itemize}
+    \item Haga un ``zoom'' dentro del sistema KDS.
+    \item Diseñe los contenedores necesarios para que el sistema funcione. Considere que el equipo de desarrollo tiene experiencia trabajando con \textbf{C\# para el backend}.
+    \item Debe incluir, como mínimo, la interfaz de usuario de los cocineros, la lógica de negocio central (API) y un mecanismo de persistencia de datos (Base de Datos).
+    \item Indique las tecnologías sugeridas para cada contenedor (ej. tipo de base de datos, framework del backend, plataforma del frontend).
+    \item \textbf{Entregable:} Un diagrama de Contenedores detallando las piezas desplegables del KDS, las responsabilidades de cada contenedor y los protocolos de comunicación entre ellos.
+\end{itemize}
+
+\subsection{Parte 3: Diagrama de Componentes (Nivel 3)}
+\textbf{Objetivo:} Estructurar el código internamente, aplicando principios de diseño orientado a objetos.
+\begin{itemize}
+    \item Haga un ``zoom'' \textbf{exclusivamente dentro de la API desarrollada en C\#}.
+    \item Modele los componentes internos necesarios para recibir un nuevo pedido desde el POS y para actualizar el estado del pedido desde la tablet del cocinero.
+    \item Considere separar las responsabilidades utilizando modelos, controladores y repositorios.
+    \item \textbf{Entregable:} Un diagrama de Componentes del contenedor de la API, mostrando cómo interactúan los controladores, servicios y repositorios entre sí, y cómo se conectan hacia afuera con la base de datos y los otros contenedores.
+\end{itemize}
+
+\end{document}
